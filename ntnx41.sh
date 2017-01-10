@@ -2,8 +2,8 @@
 
 #description	:Nutanix Deployment Toolbox for Nutanix SE use only
 #author		:Ben Peterson bpeterson@nutanix.com
-#updated	:2015-05-20
-#version	:0.5    
+#updated	:2017-01-10
+#version	:0.6    
 #notes		:
 
 
@@ -27,8 +27,8 @@ echo "1 - Change all IPMI Passwords in Nutanix Cluster"
 echo "2 - Change all ESXi Passwords in Nutanix Cluster"
 echo "3 - Change all CVM  Passwords in Nutanix Cluster"
 echo "4 - Set UseDNS option to no on all ESX hosts"
-echo "5 - *Experimental Change CVM Network VLAN tags - Stop cluster first!" 
-echo "6 - *Experimental Change ESX Management VLAN tags - Connection will be lost in 30 seconds!"
+echo "5 - Change CVM Network VLAN tags - Stop cluster first!" 
+echo "6 - Change ESX Management VLAN tags - Connection will be lost in 30 seconds!"
 echo "9 - List ESX VLAN tags"
 echo ""
 echo ""
