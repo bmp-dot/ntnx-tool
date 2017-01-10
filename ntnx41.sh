@@ -27,8 +27,8 @@ echo "1 - Change all IPMI Passwords in Nutanix Cluster"
 echo "2 - Change all ESXi Passwords in Nutanix Cluster"
 echo "3 - Change all CVM  Passwords in Nutanix Cluster"
 echo "4 - Set UseDNS option to no on all ESX hosts"
-echo "5 - Change CVM Network VLAN tags - Stop cluster first!" 
-echo "6 - Change ESX Management VLAN tags - Connection will be lost in 30 seconds!"
+echo "5 - Change CVM Network VLAN tags - Stop cluster first! Must do 5 and 6 at same time!"
+echo "6 - Change ESX Management VLAN tags - Connection will be lost in 60 seconds! Must do 5 and 6 at same time!"
 echo "9 - List ESX VLAN tags"
 echo ""
 echo ""
@@ -85,12 +85,12 @@ for i in `hostips`; do echo "Changing sshd_config on $i" && ssh root@$i 'echo "u
 
 5)
 read -p "Enter new CVM VLAN Network tag: " CVMVLAN; 
-for i in `hostips`; do echo "Changing CVM VLAN Network tag on $i to $CVMVLAN" && ssh -f root@$i "nohup sleep 600 && esxcfg-vswitch -p 'VM Network' -v '$CVMVLAN' vSwitch0";done ;;
+for i in `hostips`; do echo "Changing CVM VLAN Network tag on $i to $CVMVLAN" && ssh -f root@$i "nohup sleep 60 && esxcfg-vswitch -p 'VM Network' -v '$CVMVLAN' vSwitch0";done ;;
 
 
 6)
 read -p "Enter new ESX Management VLAN tag: " MGMTVLAN;
-for i  in `hostips`; do echo "Changing ESX Management VLAN tag on $i to $MGMTVLAN" && ssh -f root@$i "nohup sleep 600 && esxcfg-vswitch -p 'Management Network' -v '$MGMTVLAN' vSwitch0";done ;;
+for i  in `hostips`; do echo "Changing ESX Management VLAN tag on $i to $MGMTVLAN" && ssh -f root@$i "nohup sleep 60 && esxcfg-vswitch -p 'Management Network' -v '$MGMTVLAN' vSwitch0";done ;;
 
 
 9)
